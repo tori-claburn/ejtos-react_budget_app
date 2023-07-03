@@ -1,5 +1,6 @@
 import React, { createContext, useReducer } from 'react';
 
+
 // 5. The reducer - this is used to update the state, based on the action
 export const AppReducer = (state, action) => {
     let budget = 0;
@@ -30,7 +31,7 @@ export const AppReducer = (state, action) => {
                     ...state
                 }
             }
-            case 'RED_EXPENSE':
+            case 'SUB_EXPENSE':
                 const red_expenses = state.expenses.map((currentExp)=> {
                     if (currentExp.name === action.payload.name && currentExp.cost - action.payload.cost >= 0) {
                         currentExp.cost =  currentExp.cost - action.payload.cost;
@@ -86,7 +87,7 @@ const initialState = {
         { id: "Human Resource", name: 'Human Resource', cost: 40 },
         { id: "IT", name: 'IT', cost: 500 },
     ],
-    currency: '£'
+    currency: '£' 
 
 };
 
@@ -121,3 +122,4 @@ export const AppProvider = (props) => {
         </AppContext.Provider>
     );
 };
+

@@ -1,31 +1,35 @@
 import React, { useContext } from 'react';
-import { AppContext } from '../context/AppContext';
+import { AppContext} from '../context/AppContext';
 import './DropDown.css'
 
-const Currencies = () => {
-  const { Currency, dispatch } = useContext(AppContext);
 
-    const changeCurrency = (val)=>{
+const Currencies = () => {
+  const { currency, dispatch,  } = useContext(AppContext);
+  
+
+    const changeCurrency = (e)=>{
       dispatch({
           type: 'CHG_CURRENCY',
-          payload: val,
+          payload: e,
       })
     }
-    
-
-  return (
+        return (
         <div className="alert alert-secondary dropdownContainer"> Currency {
-          <select name="currency" id="currency" value={Currency}
+          <select name="currency" id="currency" value={currency}
             onChange={event=>changeCurrency(event.target.value)}
             className="dropdown"
+        
           >
               <option className="dropdown-options" value="$">$ Dollar</option>
               <option className="dropdown-options" value="£">£ Pound</option>
               <option className="dropdown-options" value="€">€ Euro</option>
               <option className="dropdown-options" value="₹">₹ Ruppee</option>
           </select>	
-        }	
-      </div>
+        }
+        </div>
+        
+        
+       
     );
 };
 

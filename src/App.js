@@ -5,12 +5,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Budget from './components/Budget';
 
 // Add code to import the other components here under
-import ExpenseTotal from './components/ExpenseTotal';
+import ExpenseTotal from './components/SpentSoFar';
 import ExpenseList from './components/ExpenseList';
 import ExpenseItem from './components/ExpenseItem';
 import AllocationForm from './components/AllocationForm';
 import Remaining from './components/Remaining';
-import DropDown from './components/DropDown';
+import Currencies from './components/DropDown'
+
 
 import { AppProvider } from './context/AppContext';
 const App = () => {
@@ -25,7 +26,7 @@ const App = () => {
                     </div> 
 
                     <div className='col-sm'>
-                        <DropDown />
+                        <Currencies />
                     </div>
 
                         {/* Add Remaining component here under */} 

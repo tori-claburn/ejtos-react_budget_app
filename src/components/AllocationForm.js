@@ -1,7 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
-const AllocationForm = (props) => {
-    const { dispatch,remaining  } = useContext(AppContext);
+
+const AllocationForm = (_props) => {
+    const { currency, dispatch,remaining  } = useContext(AppContext);
     const [name, setName] = useState('');
     const [cost, setCost] = useState('');
     const [action, setAction] = useState('');
@@ -17,7 +18,7 @@ const AllocationForm = (props) => {
         };
         if(action === "Reduce") {
             dispatch({
-                type: 'RED_EXPENSE',
+                type: 'SUB_EXPENSE',
                 payload: expense,
             });
         } else {
@@ -48,12 +49,15 @@ const AllocationForm = (props) => {
                   </div>
                   <select className="custom-select" id="inputGroupSelect02" onChange={(event) => setAction(event.target.value)}>
                         <option defaultValue value="Add" name="Add">Add</option>
-                <option value="Reduce" name="Reduce">Reduce</option>
+                        <option value="Reduce" name="Reduce">Reduce</option>
                   </select>
-            
                   
+
                     
-                        <input 
+                    <div className="inputLabel" style={{ marginLeft: '4rem' , marginRight: '-1.5rem' }}>
+                    <label htmlFor="cost">{currency}</label>
+                    </div>
+                  <input 
                         required='required'
                         type='number'
                         id='cost'
